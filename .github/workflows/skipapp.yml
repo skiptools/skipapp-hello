@@ -22,10 +22,10 @@ jobs:
         with:
           path: skipapp-hello
       - run: |
-        brew install skiptools/skip/skip
-        skip init --appid=skip.hello.App --version 1.0.0 hello-skip HelloSkip
-        # make sure that the repo exactly matches the template
-        diff -r hello-skip/ skipapp-hello/
+          brew install skiptools/skip/skip
+          skip init --appid=skip.hello.App --version 1.0.0 hello-skip HelloSkip
+          # make sure that the repo exactly matches the template
+          diff -r hello-skip/ skipapp-hello/
 
   call-workflow:
     uses: skiptools/skip/.github/workflows/skip-app.yml@main
