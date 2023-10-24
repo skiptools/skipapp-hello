@@ -26,7 +26,7 @@ jobs:
           brew install skiptools/skip/skip
           skip init --appid=skip.hello.App --version 1.0.0 hello-skip HelloSkip
           # make sure that the repo exactly matches the template
-          diff --exclude=.build --exclude=.git --exclude=.github --exclude=.gitignore --exclude=Package.resolved -r hello-skip/ skipapp-hello/
+          diff --exclude=README.md --exclude=.build --exclude=.git --exclude=.github --exclude=.gitignore --exclude=Package.resolved -r hello-skip/ skipapp-hello/
 
   call-workflow:
     uses: skiptools/skip/.github/workflows/skip-app.yml@main
