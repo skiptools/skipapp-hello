@@ -1,9 +1,5 @@
-# HelloSkip
 
-This is a [Skip](https://skip.tools) dual-platform app project.
-It builds a native app for both iOS and Android.
-
-HelloSkip is the canonical sample app that that is created
+HelloSkip is the canonical sample Skip app that that is created
 with the commands:
 
 ```shell
