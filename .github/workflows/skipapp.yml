@@ -21,11 +21,12 @@ jobs:
       - uses: actions/checkout@v3
         with:
           path: skipapp-hello
-      - run: |
+      - name: Compare hello-skip remplate with skipapp-hello repo
+        run: |
           brew install skiptools/skip/skip
           skip init --appid=skip.hello.App --version 1.0.0 hello-skip HelloSkip
           # make sure that the repo exactly matches the template
-          diff -r hello-skip/ skipapp-hello/
+          diff --exclude=.build --exclude=.git --exclude=.github --exclude=.gitignore --exclude=Package.resolved -r hello-skip/ skipapp-hello/
 
   call-workflow:
     uses: skiptools/skip/.github/workflows/skip-app.yml@main
