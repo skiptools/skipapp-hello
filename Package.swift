@@ -12,7 +12,7 @@ let zero = ProcessInfo.processInfo.environment["SKIP_ZERO"] != nil
 let skipstone = !zero ? [Target.PluginUsage.plugin(name: "skipstone", package: "skip")] : []
 
 let package = Package(
-    name: "hello-skip",
+    name: "skipapp-hello",
     defaultLocalization: "en",
     platforms: [.iOS(.v16), .macOS(.v13), .tvOS(.v16), .watchOS(.v9), .macCatalyst(.v16)],
     products: [
