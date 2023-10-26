@@ -20,15 +20,15 @@ jobs:
       - run: brew install skiptools/skip/skip
       - uses: actions/checkout@v3
         with:
-          path: skipapp-hello
-      - name: Compare hello-skip remplate with skipapp-hello repo
+          path: skipapp-hello-repo
+      - name: Compare hello-skip template with skipapp-hello repo
         run: |
           brew install skiptools/skip/skip
-          skip init --appid=skip.hello.App --version 1.0.0 hello-skip HelloSkip
+          skip init --appid=skip.hello.App --version 1.0.0 skipapp-hello HelloSkip
           # make sure that the repo exactly matches the template,
           # allowing for changes in some files, as well as
           # dependency versions
-          diff --exclude=README.md --exclude=.build --exclude=.git --exclude=.github --exclude=.gitignore --exclude=Package.resolved -I 'url: "https://source.skip.tools/' -r hello-skip/ skipapp-hello/
+          diff --exclude=README.md --exclude=.build --exclude=.git --exclude=.github --exclude=.gitignore --exclude=Package.resolved -I 'url: "https://source.skip.tools/' -r skipapp-hello/ skipapp-hello-repo/
 
   call-workflow:
     uses: skiptools/skip/.github/workflows/skip-app.yml@main
