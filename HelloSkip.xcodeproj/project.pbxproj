@@ -1,4 +1,4 @@
-			// !$*UTF8*$!
+// !$*UTF8*$!
 {
 	archiveVersion = 1;
 	classes = {
@@ -122,7 +122,7 @@
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1500;
 			};
-			buildConfigurationList = 49F90C232A52156200F06D93 /* Build configuration list for PBXProject "HelloSkipApp" */;
+			buildConfigurationList = 49F90C232A52156200F06D93 /* Build configuration list for PBXProject "HelloSkip" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -329,7 +329,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		49F90C232A52156200F06D93 /* Build configuration list for PBXProject "HelloSkipApp" */ = {
+		49F90C232A52156200F06D93 /* Build configuration list for PBXProject "HelloSkip" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				49F90C4B2A52156300F06D93 /* Debug */,

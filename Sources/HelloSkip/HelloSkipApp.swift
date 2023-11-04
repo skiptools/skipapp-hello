@@ -14,7 +14,7 @@ struct RootView : View {
     var body: some View {
         ContentView()
             .task {
-                logger.log("Welcome to Skip on \(androidSDK != nil ? "Android" : "Darwin")!")
+                logger.log("Welcome to Skip on \(androidSDK != nil ? "Android" : "iOS")!")
                 logger.warning("Skip app logs are viewable in the Xcode console for iOS; Android logs can be viewed in Studio or using adb logcat")
             }
     }
@@ -135,6 +135,7 @@ public class MainActivity : AppCompatActivity {
     }
 
     public override func onRequestPermissionsResult(requestCode: Int, permissions: kotlin.Array<String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         logger.info("onRequestPermissionsResult: \(requestCode)")
     }
 }

@@ -1,9 +1,12 @@
 import SwiftUI
 
-struct ContentView: View {
+public struct ContentView: View {
     @AppStorage("setting") var setting = true
 
-    var body: some View {
+    public init() {
+    }
+
+    public var body: some View {
         TabView {
             VStack {
                 Text("Welcome Skipper!")
