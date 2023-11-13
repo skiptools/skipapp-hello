@@ -1,36 +1,16 @@
-// The configuration file for your Skip App (https://skip.tools)
+#include "../Skip.env"
 
-// PRODUCT_NAME is the default title of the app
-PRODUCT_NAME = HelloSkip
-
-// PRODUCT_BUNDLE_IDENTIFIER is the unique id for both the iOS and Android app
-PRODUCT_BUNDLE_IDENTIFIER = skip.hello.App
-
-// The semantic version of the app
-MARKETING_VERSION = 1.0.0
-
-// The build number specifying the internal app version
-CURRENT_PROJECT_VERSION = 1
-
-IPHONEOS_DEPLOYMENT_TARGET = 16.0
-MACOSX_DEPLOYMENT_TARGET = 13.0
-
-// On-device testing may need to override the bundle ID
-// PRODUCT_BUNDLE_IDENTIFIER[config=Debug][sdk=iphoneos*] = skip.hello.App
-
-// The package name for the Android entry point, referenced by the AndroidManifest.xml
-ANDROID_PACKAGE_NAME = hello.skip
-
-// Assemble the APK as part of the build process
-SKIP_BUILD_APK = YES
-
-// Building the target will lauch the app for iphone* targets
-SKIP_LAUNCH_APK[sdk=iphone*] = YES
+// Set the action that will be executed as part of the Xcode Run Script phase
+// Setting to "launch" will build and run the app in the first open Android emulator or device
+// Setting to "build" will just run gradle build, but will no launc the app
+SKIP_ACTION = launch
+//SKIP_ACTION = build
 
 ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon
 ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor
 
 GENERATE_INFOPLIST_FILE = YES
+
 // The user-visible name of the app (localizable)
 //INFOPLIST_KEY_CFBundleDisplayName = App Name
 //INFOPLIST_KEY_LSApplicationCategoryType = public.app-category.utilities
@@ -42,9 +22,18 @@ INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphone*] = YES
 INFOPLIST_KEY_UIStatusBarStyle[sdk=iphone*] = UIStatusBarStyleDefault
 INFOPLIST_KEY_UISupportedInterfaceOrientations[sdk=iphone*] = UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown
 
+IPHONEOS_DEPLOYMENT_TARGET = 16.0
+MACOSX_DEPLOYMENT_TARGET = 13.0
+
+// the name of the product module; this can be anything, but cannot conflict with any Swift module names
+PRODUCT_MODULE_NAME = $(PRODUCT_NAME:c99extidentifier)App
+
+// On-device testing may need to override the bundle ID
+// PRODUCT_BUNDLE_IDENTIFIER[config=Debug][sdk=iphoneos*] = cool.beans.BundleIdentifer
+
 // Development team ID for on-device testing
 CODE_SIGNING_REQUIRED = NO
 CODE_SIGN_STYLE = Automatic
-CODE_SIGN_ENTITLEMENTS = Sources/HelloSkip/Skip/Capabilities.entitlements
+CODE_SIGN_ENTITLEMENTS = Entitlements.plist
 //CODE_SIGNING_IDENTITY = -
 //DEVELOPMENT_TEAM =

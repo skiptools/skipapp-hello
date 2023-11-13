@@ -1,58 +1,7 @@
+# HelloSkip
 
-HelloSkip is the canonical sample Skip app that that is created
-with the commands:
-
-```shell
-brew install skiptools/skip/skip
-skip init --appid=skip.hello.App --version 1.0.0 hello-skip HelloSkip
-```
-
-The repository is both a valid Swift Package Manager project,
-as well as an Xcode project. Running the "HelloSkipApp" target
-in Xcode will compile and run the app on an iOS simulator,
-as well as transpile the app into a Kotlin Gradle project,
-comple the app, and run it on an Android emulator (which must first
-be launched from Android Studio).
-
-For layout of the project is as follows:
-
-```
-hello-skip
-├── HelloSkip.xcconfig
-├── HelloSkip.xcodeproj
-│   └── project.pbxproj
-├── Package.resolved
-├── Package.swift
-├── README.md
-├── Sources
-│   ├── HelloSkip
-│   │   ├── ContentView.swift
-│   │   ├── HelloSkip.swift
-│   │   ├── HelloSkipApp.swift
-│   │   ├── Resources
-│   │   │   └── Localizable.xcstrings
-│   │   └── Skip
-│   │       ├── AndroidManifest.xml
-│   │       ├── Assets.xcassets
-│   │       │   ├── AccentColor.colorset
-│   │       │   │   └── Contents.json
-│   │       │   ├── AppIcon.appiconset
-│   │       │   │   └── Contents.json
-│   │       │   └── Contents.json
-│   │       ├── Capabilities.entitlements
-│   │       └── skip.yml
-│   └── HelloSkipApp
-│       └── HelloSkipAppMain.swift
-└── Tests
-    └── HelloSkipTests
-        ├── HelloSkipTests.swift
-        ├── Resources
-        │   └── TestData.json
-        ├── Skip
-        │   └── skip.yml
-        └── XCSkipTests.swift
-```
-
+This is a [Skip](https://skip.tools) dual-platform app project.
+It builds a native app for both iOS and Android.
 
 ## Building
 
@@ -66,7 +15,7 @@ Building the module requires that Skip be installed using
 This will also install the necessary transpiler prerequisites:
 Kotlin, Gradle, and the Android build tools.
 
-Installation requirements can be confirmed by running `skip checkup`.
+Installation prerequisites can be confirmed by running `skip checkup`.
 
 ## Testing
 

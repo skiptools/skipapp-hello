@@ -1,6 +1,7 @@
 import XCTest
 import OSLog
 import Foundation
+@testable import HelloSkip
 
 let logger: Logger = Logger(subsystem: "HelloSkip", category: "Tests")
 
