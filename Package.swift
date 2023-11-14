@@ -16,10 +16,10 @@ let package = Package(
     defaultLocalization: "en",
     platforms: [.iOS(.v16), .macOS(.v13), .tvOS(.v16), .watchOS(.v9), .macCatalyst(.v16)],
     products: [
-        .library(name: "HelloSkip", type: .dynamic, targets: ["HelloSkip"]),
+        .library(name: "HelloSkipApp", type: .dynamic, targets: ["HelloSkip"]),
     ],
     dependencies: [
-        .package(url: "https://source.skip.tools/skip.git", from: "0.0.0"),
+        .package(url: "https://source.skip.tools/skip.git", from: "0.7.25"),
         .package(url: "https://source.skip.tools/skip-ui.git", from: "0.0.0")
     ],
     targets: [
