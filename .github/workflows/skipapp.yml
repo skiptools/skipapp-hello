@@ -28,7 +28,7 @@ jobs:
           # make sure that the repo exactly matches the template,
           # allowing for changes in some files, as well as
           # dependency versions
-          diff --exclude=README.md --exclude=.build --exclude=.git --exclude=.github --exclude=.gitignore --exclude=Package.resolved --exclude=Localizable.xcstrings -I 'url: "https://source.skip.tools/' -r skipapp-hello/ skipapp-hello-repo/
+          diff --exclude=README.md --exclude=.build --exclude=.git --exclude=.github --exclude=.gitignore --exclude=Package.resolved --exclude=Localizable.xcstrings --exclude=project.xcworkspace -I 'url: "https://source.skip.tools/' -r skipapp-hello/ skipapp-hello-repo/
 
   call-workflow:
     uses: skiptools/skip/.github/workflows/skip-app.yml@main
