@@ -1,33 +1,5 @@
 {
   "sourceLanguage" : "en",
-  "strings" : {
-    "Destination %lld" : {
-
-    },
-    "Home" : {
-
-    },
-    "Home %lld" : {
-
-    },
-    "Navigation" : {
-
-    },
-    "Navigation %lld" : {
-
-    },
-    "Option" : {
-
-    },
-    "Settings" : {
-
-    },
-    "Welcome" : {
-
-    },
-    "Welcome Skipper!" : {
-
-    }
-  },
+  "strings" : {},
   "version" : "1.0"
 }
