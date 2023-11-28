@@ -3,7 +3,7 @@
 
 pluginManagement {
     repositories {
-        maven("https://maven.skip.tools")       
+        maven("https://maven.skip.tools")
         gradlePluginPortal()
         mavenCentral()
         google()
