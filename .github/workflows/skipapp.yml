@@ -22,8 +22,6 @@ jobs:
         with:
           path: skipapp-hello-repo
       - name: Compare hello-skip template with skipapp-hello repo
-        # disabled until re-sync with skip init output
-        if: false
         run: |
           brew install skiptools/skip/skip
           skip init --appid=skip.hello.App --version 1.0.0 skipapp-hello HelloSkip
