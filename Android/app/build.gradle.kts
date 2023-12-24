@@ -27,6 +27,19 @@ android {
         buildConfig = true
         compose = true
     }
+    signingConfigs {
+        create("release") {
+            if (keystorePropertiesFile.exists()) {
+                val keystoreProperties = Properties()
+                keystoreProperties.load(FileInputStream(keystorePropertiesFile))
+
+                keyAlias = keystoreProperties.getProperty("keyAlias")
+                keyPassword = keystoreProperties.getProperty("keyPassword")
+                storeFile = file(keystoreProperties.getProperty("storeFile"))
+                storePassword = keystoreProperties.getProperty("storePassword")
+            }
+        }
+    }
     buildTypes {
         release {
             signingConfig = signingConfigs.findByName("release")
