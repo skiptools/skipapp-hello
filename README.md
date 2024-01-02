@@ -43,7 +43,7 @@ Android Studio's logcat tab for the transpiled Kotlin app.
 
 ## Project Structure
 
-``plaintext
+```plaintext
 .
 ├── Android
 │   ├── app
