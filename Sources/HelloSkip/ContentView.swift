@@ -11,7 +11,7 @@ public struct ContentView: View {
             VStack {
                 Text("Welcome Skipper!")
                 Image(systemName: "heart.fill")
-                    .foregroundColor(.red)
+                    .foregroundStyle(.red)
             }
             .font(.largeTitle)
             .tabItem { Label("Welcome", systemImage: "heart.fill") }
@@ -31,10 +31,19 @@ public struct ContentView: View {
             }
             .tabItem { Label("Home", systemImage: "house.fill") }
 
-            Form {
-                Text("Settings")
-                    .font(.largeTitle)
-                Toggle("Option", isOn: $setting)
+            NavigationStack {
+                Form {
+                    Toggle("Option", isOn: $setting)
+                    #if SKIP
+                    ComposeView { ctx in
+                        androidx.compose.material3.Text("Powered by Jetpack Compose", modifier: ctx.modifier, color: Color.gray.colorImpl())
+                    }
+                    #else
+                    Text("Powered by SwiftUI")
+                        .foregroundStyle(.gray)
+                    #endif
+                }
+                .navigationTitle("Settings")
             }
             .tabItem { Label("Settings", systemImage: "gearshape.fill") }
         }
