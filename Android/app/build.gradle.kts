@@ -69,8 +69,6 @@ fun prop(key: String): String {
     return value
 }
 
-//@include:file("")
-
 // add the "launchDebug" and "launchRelease" commands
 listOf("Debug", "Release").forEach { buildType ->
     task("launch" + buildType) {
