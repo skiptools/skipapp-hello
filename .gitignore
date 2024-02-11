@@ -96,4 +96,6 @@ fastlane/test_output
 
 iOSInjectionProject/
 
+# gradle properties
+local.properties
 
