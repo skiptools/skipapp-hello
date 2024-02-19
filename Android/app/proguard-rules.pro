@@ -1,2 +1,3 @@
-#-keep class skip.** { *; }
+-keep class skip.** { *; }
+-keep class hello.** { *; }
 
