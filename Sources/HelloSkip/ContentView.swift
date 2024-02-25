@@ -1,53 +1,69 @@
 import SwiftUI
 
 public struct ContentView: View {
-    @AppStorage("setting") var setting = true
+    @State var mode = false
+    @AppStorage("tab") var tab = Tab.welcome
+    @AppStorage("name") var name = "Skipper"
 
     public init() {
     }
 
     public var body: some View {
-        TabView {
+        TabView(selection: $tab) {
             VStack {
-                Text("Welcome Skipper!")
+                Text("Hello \(name)!")
                 Image(systemName: "heart.fill")
                     .foregroundStyle(.red)
             }
             .font(.largeTitle)
             .tabItem { Label("Welcome", systemImage: "heart.fill") }
+            .tag(Tab.welcome)
 
             NavigationStack {
                 List {
                     ForEach(1..<1_000) { i in
-                        NavigationLink("Home \(i)", value: i)
+                        NavigationLink("Item \(i)", value: i)
                     }
                 }
-                .navigationTitle("Navigation")
+                .navigationTitle("Home")
                 .navigationDestination(for: Int.self) { i in
-                    Text("Destination \(i)")
+                    Text("Item \(i)")
                         .font(.title)
-                        .navigationTitle("Navigation \(i)")
+                        .navigationTitle("Screen \(i)")
                 }
             }
             .tabItem { Label("Home", systemImage: "house.fill") }
+            .tag(Tab.home)
 
             NavigationStack {
                 Form {
-                    Toggle("Option", isOn: $setting)
-                    #if SKIP
-                    ComposeView { ctx in
-                        androidx.compose.material3.Text("Powered by Jetpack Compose", modifier: ctx.modifier, color: Color.gray.colorImpl())
+                    TextField("Name", text: $name)
+                    Toggle("Mode", isOn: $mode).onChange(of: mode) { _ in
+                        logger.log("Toggled mode to: \(mode)")
                     }
-                    #else
-                    Text("Powered by SwiftUI")
-                        .foregroundStyle(.gray)
-                    #endif
+                    HStack {
+                        #if SKIP
+                        ComposeView { ctx in
+                            androidx.compose.material3.Text("💚", modifier: ctx.modifier)
+                        }
+                        #else
+                        Text(verbatim: "💙")
+                        #endif
+                        Text("Powered by \(androidSDK != nil ? "Jetpack Compose" : "SwiftUI")")
+                    }
+                    .foregroundStyle(.gray)
+                    .bold(mode)
                 }
                 .navigationTitle("Settings")
             }
             .tabItem { Label("Settings", systemImage: "gearshape.fill") }
+            .tag(Tab.settings)
         }
     }
+}
+
+enum Tab : String, Hashable {
+    case welcome, home, settings
 }
 
 #Preview {
