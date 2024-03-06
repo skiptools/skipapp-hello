@@ -1,19 +1,24 @@
 import SwiftUI
 
 public struct ContentView: View {
-    @State var mode = false
     @AppStorage("tab") var tab = Tab.welcome
     @AppStorage("name") var name = "Skipper"
+    @State var mode = false
+    @State var isBeating = false
 
     public init() {
     }
 
     public var body: some View {
         TabView(selection: $tab) {
-            VStack {
+            VStack(spacing: 0) {
                 Text("Hello \(name)!")
+                    .padding()
                 Image(systemName: "heart.fill")
                     .foregroundStyle(.red)
+                    .scaleEffect(isBeating ? 1.5 : 1.0)
+                    .animation(.easeInOut(duration: 1).repeatForever(), value: isBeating)
+                    .onAppear { isBeating = true }
             }
             .font(.largeTitle)
             .tabItem { Label("Welcome", systemImage: "heart.fill") }
@@ -43,7 +48,7 @@ public struct ContentView: View {
                     }
                     HStack {
                         #if SKIP
-                        ComposeView { ctx in
+                        ComposeView { ctx in // Mix in Compose code!
                             androidx.compose.material3.Text("💚", modifier: ctx.modifier)
                         }
                         #else
