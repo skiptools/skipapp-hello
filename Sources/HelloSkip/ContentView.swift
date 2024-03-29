@@ -3,7 +3,7 @@ import SwiftUI
 public struct ContentView: View {
     @AppStorage("tab") var tab = Tab.welcome
     @AppStorage("name") var name = "Skipper"
-    @State var mode = false
+    @State var appearance = ""
     @State var isBeating = false
 
     public init() {
@@ -43,8 +43,10 @@ public struct ContentView: View {
             NavigationStack {
                 Form {
                     TextField("Name", text: $name)
-                    Toggle("Mode", isOn: $mode).onChange(of: mode) { _ in
-                        logger.log("Toggled mode to: \(mode)")
+                    Picker("Appearance", selection: $appearance) {
+                        Text("System").tag("")
+                        Text("Light").tag("light")
+                        Text("Dark").tag("dark")
                     }
                     HStack {
                         #if SKIP
@@ -57,13 +59,13 @@ public struct ContentView: View {
                         Text("Powered by \(androidSDK != nil ? "Jetpack Compose" : "SwiftUI")")
                     }
                     .foregroundStyle(.gray)
-                    .bold(mode)
                 }
                 .navigationTitle("Settings")
             }
             .tabItem { Label("Settings", systemImage: "gearshape.fill") }
             .tag(Tab.settings)
         }
+        .preferredColorScheme(appearance == "dark" ? .dark : appearance == "light" ? .light : nil)
     }
 }
 
