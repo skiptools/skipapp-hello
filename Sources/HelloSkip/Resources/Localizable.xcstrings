@@ -19,7 +19,7 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "外観"
-          } 
+          }
         },
         "zh-Hans" : {
           "stringUnit" : {
@@ -52,7 +52,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "暗黑"
+            "value" : "暗"
           }
         }
       }
@@ -164,7 +164,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "明亮"
+            "value" : "光"
           }
         }
       }
@@ -304,7 +304,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "系统颜"
+            "value" : "系统"
           }
         }
       }
