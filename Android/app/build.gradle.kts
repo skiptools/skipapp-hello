@@ -20,6 +20,9 @@ android {
     kotlinOptions {
         jvmTarget = libs.versions.jvm.get().toString()
     }
+    packaging {
+        jniLibs.keepDebugSymbols.add("**/*.so")
+    }
 
     defaultConfig {
         minSdk = libs.versions.android.sdk.min.get().toInt()
