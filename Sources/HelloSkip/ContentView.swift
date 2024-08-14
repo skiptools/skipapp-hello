@@ -72,7 +72,3 @@ public struct ContentView: View {
 enum Tab : String, Hashable {
     case welcome, home, settings
 }
-
-#Preview {
-    ContentView()
-}
