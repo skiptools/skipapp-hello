@@ -57,30 +57,30 @@
         }
       }
     },
-    "Hello %@!" : {
+    "Hello [%@](https://skip.tools)!" : {
       "localizations" : {
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "¡Hola %@!"
+            "value" : "¡Hola [%@](https://skip.tools)!"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bonjour %@!"
+            "value" : "Bonjour [%@](https://skip.tools)!"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "こんにちは、%@!"
+            "value" : "こんにちは、[%@](https://skip.tools)!"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "你好，%@!"
+            "value" : "你好，[%@](https://skip.tools)!"
           }
         }
       }
