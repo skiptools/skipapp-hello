@@ -43,9 +43,9 @@ open class MainActivity: AppCompatActivity {
 
     override fun onCreate(savedInstanceState: android.os.Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         logger.info("starting activity")
         UIApplication.launch(this)
+        enableEdgeToEdge()
 
         setContent {
             val saveableStateHolder = rememberSaveableStateHolder()
