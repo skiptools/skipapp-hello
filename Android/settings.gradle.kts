@@ -1,10 +1,10 @@
 // This gradle project is part of a conventional Skip app project.
 // It invokes the shared build skip plugin logic, which included as part of the skip-unit buildSrc
-// When built from Xcode, it uses the BUILT_PRODUCTS_DIR folder to share the same build outputs as Xcode, otherwise it uses SwiftPM's .build/ folder
+// When built from Android Studio, it uses the BUILT_PRODUCTS_DIR folder to share the same build outputs as Xcode, otherwise it uses SwiftPM's .build/ folder
 pluginManagement {
     // local override of BUILT_PRODUCTS_DIR
     if (System.getenv("BUILT_PRODUCTS_DIR") == null) {
-        //System.setProperty("BUILT_PRODUCTS_DIR", "${System.getProperty("user.home")}/Library/Developer/Xcode/DerivedData/Skip-Everything-aqywrhrzhkbvfseiqgxuufbdwdft/Build/Products/Debug-iphonesimulator")
+        //System.setProperty("BUILT_PRODUCTS_DIR", "${System.getProperty("user.home")}/Library/Developer/Xcode/DerivedData/MySkipProject-aqywrhrzhkbvfseiqgxuufbdwdft/Build/Products/Debug-iphonesimulator")
     }
 
     // the source for the plugin is linked as part of the SkipUnit transpilation
