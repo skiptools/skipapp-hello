@@ -21,7 +21,10 @@ android {
         jvmTarget = libs.versions.jvm.get().toString()
     }
     packaging {
-        jniLibs.keepDebugSymbols.add("**/*.so")
+        jniLibs {
+            keepDebugSymbols.add("**/*.so")
+            pickFirsts.add("**/*.so")
+        }
     }
 
     defaultConfig {
