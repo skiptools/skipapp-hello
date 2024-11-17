@@ -31,7 +31,6 @@ open class AndroidAppMain: Application {
         super.onCreate()
         logger.info("starting app")
         ProcessInfo.launch(applicationContext)
-
     }
 
     companion object {
