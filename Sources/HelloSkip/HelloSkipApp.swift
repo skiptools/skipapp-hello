@@ -2,7 +2,7 @@ import Foundation
 import OSLog
 import SwiftUI
 
-let logger: Logger = Logger(subsystem: "skip.hello.App", category: "HelloSkip")
+fileprivate let logger: Logger = Logger(subsystem: "skip.hello.App", category: "HelloSkip")
 
 /// The Android SDK number we are running against, or `nil` if not running on Android
 let androidSDK = ProcessInfo.processInfo.environment["android.os.Build.VERSION.SDK_INT"].flatMap({ Int($0) })

@@ -14,7 +14,7 @@ let skipstone = !zero ? [Target.PluginUsage.plugin(name: "skipstone", package: "
 let package = Package(
     name: "skipapp-hello",
     defaultLocalization: "en",
-    platforms: [.iOS(.v16), .macOS(.v13), .tvOS(.v16), .watchOS(.v9), .macCatalyst(.v16)],
+    platforms: [.iOS(.v17), .macOS(.v14), .tvOS(.v17), .watchOS(.v10), .macCatalyst(.v17)],
     products: [
         .library(name: "HelloSkipApp", type: .dynamic, targets: ["HelloSkip"]),
     ],
@@ -23,7 +23,10 @@ let package = Package(
         .package(url: "https://source.skip.tools/skip-ui.git", from: "1.0.0")
     ],
     targets: [
-        .target(name: "HelloSkip", dependencies: (zero ? [] : [.product(name: "SkipUI", package: "skip-ui")]), resources: [.process("Resources")], plugins: skipstone),
-        .testTarget(name: "HelloSkipTests", dependencies: ["HelloSkip"] + (zero ? [] : [.product(name: "SkipTest", package: "skip")]), resources: [.process("Resources")], plugins: skipstone),
+        .target(name: "HelloSkip", dependencies: (zero ? [] : [
+            .product(name: "SkipUI", package: "skip-ui")
+        ]), resources: [.process("Resources")], plugins: skipstone),
+        .testTarget(name: "HelloSkipTests", dependencies: [
+            "HelloSkip"] + (zero ? [] : [.product(name: "SkipTest", package: "skip")]), resources: [.process("Resources")], plugins: skipstone),
     ]
 )
