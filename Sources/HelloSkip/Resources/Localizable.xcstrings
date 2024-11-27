@@ -113,34 +113,6 @@
         }
       }
     },
-    "Item %lld" : {
-      "localizations" : {
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Elemento %lld"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Élément %lld"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "アイテム %lld"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "项目 %lld"
-          }
-        }
-      }
-    },
     "Light" : {
       "localizations" : {
         "es" : {
@@ -197,7 +169,7 @@
         }
       }
     },
-    "Powered by %@" : {
+    "Powered by Skip and %@" : {
       "localizations" : {
         "es" : {
           "stringUnit" : {
@@ -221,34 +193,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "由%@提供动力"
-          }
-        }
-      }
-    },
-    "Screen %lld" : {
-      "localizations" : {
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pantalla %lld"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Écran %lld"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "画面 %lld"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "屏幕 %lld"
           }
         }
       }

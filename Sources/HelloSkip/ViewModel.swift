@@ -2,7 +2,7 @@ import Foundation
 import Observation
 import OSLog
 
-fileprivate let logger: Logger = Logger(subsystem: "HelloSkip", category: "HelloSkip")
+fileprivate let logger: Logger = Logger(subsystem: "HiyaSkipModel", category: "HiyaSkipModel")
 
 /// The Observable ViewModel used by the application.
 @Observable public class ViewModel {
@@ -18,8 +18,16 @@ fileprivate let logger: Logger = Logger(subsystem: "HelloSkip", category: "Hello
         items.removeAll()
     }
 
-    public func shuffle() {
-        items.shuffle()
+    public func isUpdated(_ item: Item) -> Bool {
+        item != items.first { i in
+            i.id == item.id
+        }
+    }
+
+    public func save(item: Item) {
+        items = items.map { i in
+            i.id == item.id ? item : i
+        }
     }
 }
 
@@ -37,10 +45,6 @@ public struct Item : Identifiable, Hashable, Codable {
         self.favorite = favorite
         self.title = title
         self.notes = notes
-    }
-
-    public var linkTitle: String {
-        (favorite ? "⭐️ " : "") + itemTitle
     }
 
     public var itemTitle: String {
@@ -90,3 +94,4 @@ extension ViewModel {
         }
     }
 }
+            

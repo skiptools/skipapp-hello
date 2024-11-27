@@ -30,28 +30,14 @@ public struct ContentView: View {
 
             NavigationStack {
                 List {
-                    ForEach($viewModel.items) { $item in
-                        NavigationLink(item.linkTitle) {
-                            Form {
-                                TextField("Title", text: $item.title)
-                                    .textFieldStyle(.roundedBorder)
-                                Text("Notes").font(.title3)
-                                TextEditor(text: $item.notes)
-                                    .border(Color.secondary, width: 1.0)
-                                Text("Created: \(item.dateTimeString)")
-                                    .font(.footnote)
-                                    .foregroundStyle(.secondary)
-                            }
-                            .navigationTitle(item.itemTitle)
-                            .toolbar {
-                                ToolbarItemGroup {
-                                    Button {
-                                        item.favorite = !item.favorite
-                                    } label: {
-                                        Image(systemName: "star.fill")
-                                            .foregroundStyle(item.favorite ? .yellow : .gray)
-                                    }
-                                    .accessibilityLabel(Text("Favorite"))
+                    ForEach(viewModel.items) { item in
+                        NavigationLink(value: item) {
+                            Label {
+                                Text(item.itemTitle)
+                            } icon: {
+                                if item.favorite {
+                                    Image(systemName: "star.fill")
+                                        .foregroundStyle(.yellow)
                                 }
                             }
                         }
@@ -63,11 +49,10 @@ public struct ContentView: View {
                         viewModel.items.move(fromOffsets: fromOffsets, toOffset: toOffset)
                     }
                 }
-                .navigationTitle(Text("Items: \(viewModel.items.count)"))
-                .navigationDestination(for: Item.self) { i in
-                    Text(i.id.uuidString)
-                        .font(.title3.monospaced())
-                        .navigationTitle("Item: \(i.date.formatted(date: .numeric, time: .omitted))")
+                .navigationTitle(Text("\(viewModel.items.count) Items"))
+                .navigationDestination(for: Item.self) { item in
+                    ItemView(item: item, viewModel: $viewModel)
+                        .navigationTitle(item.itemTitle)
                 }
                 .toolbar {
                     ToolbarItemGroup {
@@ -100,7 +85,7 @@ public struct ContentView: View {
                         #else
                         Text(verbatim: "💙")
                         #endif
-                        Text("Powered by \(androidSDK != nil ? "Jetpack Compose" : "SwiftUI")")
+                        Text("Powered by Skip and \(androidSDK != nil ? "Jetpack Compose" : "SwiftUI")")
                     }
                     .foregroundStyle(.gray)
                 }
@@ -110,5 +95,38 @@ public struct ContentView: View {
             .tag(ContentTab.settings)
         }
         .preferredColorScheme(appearance == "dark" ? .dark : appearance == "light" ? .light : nil)
+    }
+}
+
+struct ItemView : View {
+    @State var item: Item
+    @Binding var viewModel: ViewModel
+    @Environment(\.dismiss) var dismiss
+
+    var body: some View {
+        Form {
+            TextField("Title", text: $item.title)
+                .textFieldStyle(.roundedBorder)
+            Toggle("Favorite", isOn: $item.favorite)
+            DatePicker("Date", selection: $item.date)
+            Text("Notes").font(.title3)
+            TextEditor(text: $item.notes)
+                .border(Color.secondary, width: 1.0)
+        }
+        .navigationBarBackButtonHidden()
+        .toolbar {
+            ToolbarItem(placement: .cancellationAction) {
+                Button("Cancel") {
+                    dismiss()
+                }
+            }
+            ToolbarItem(placement: .confirmationAction) {
+                Button("Save") {
+                    viewModel.save(item: item)
+                    dismiss()
+                }
+                .disabled(!viewModel.isUpdated(item))
+            }
+        }
     }
 }
