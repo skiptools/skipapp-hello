@@ -3,6 +3,68 @@
 This is a [Skip](https://skip.tools) dual-platform app project.
 It builds a native app for both iOS and Android.
 
+This is the exact project with will be output when running the command:
+
+```
+skip init --zero --appid=skip.hello.App skipapp-hello HelloSkip
+```
+
+The project structure looks like this:
+
+```
+skipapp-hello
+├── Android
+│   ├── app
+│   │   ├── build.gradle.kts
+│   │   ├── proguard-rules.pro
+│   │   └── src
+│   │       └── main
+│   │           ├── AndroidManifest.xml
+│   │           └── kotlin
+│   │               └── hello
+│   │                   └── skip
+│   │                       └── Main.kt
+│   ├── gradle.properties
+│   └── settings.gradle.kts
+├── CHANGELOG.md
+├── Darwin
+│   ├── Assets.xcassets
+│   │   ├── AccentColor.colorset
+│   │   │   └── Contents.json
+│   │   └── Contents.json
+│   ├── Entitlements.plist
+│   ├── HelloSkip.xcconfig
+│   ├── HelloSkip.xcodeproj
+│   │   └── project.pbxproj
+│   ├── Info.plist
+│   └── Sources
+│       └── HelloSkipAppMain.swift
+├── Package.swift
+├── README.md
+├── Skip.env
+├── Sources
+│   └── HelloSkip
+│       ├── ContentView.swift
+│       ├── HelloSkipApp.swift
+│       ├── Resources
+│       │   ├── Localizable.xcstrings
+│       │   └── Module.xcassets
+│       │       └── Contents.json
+│       ├── Skip
+│       │   └── skip.yml
+│       └── ViewModel.swift
+└── Tests
+    └── HelloSkipTests
+        ├── HelloSkipTests.swift
+        ├── Resources
+        │   └── TestData.json
+        ├── Skip
+        │   └── skip.yml
+        └── XCSkipTests.swift
+```
+
+
+
 ## Building
 
 This project is both a stand-alone Swift Package Manager module,
