@@ -2,7 +2,7 @@ import Foundation
 import Observation
 import OSLog
 
-fileprivate let logger: Logger = Logger(subsystem: "HiyaSkipModel", category: "HiyaSkipModel")
+fileprivate let logger: Logger = Logger(subsystem: "HelloSkip", category: "HelloSkip")
 
 /// The Observable ViewModel used by the application.
 @Observable public class ViewModel {
