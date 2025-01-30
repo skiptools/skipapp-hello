@@ -201,6 +201,7 @@
 /* Begin XCBuildConfiguration section */
 		499CD4422AC5B799001AE8D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 496EB72F2A6AE4DE00C1253B /* HelloSkip.xcconfig */;
 			buildSettings = {
 				ENABLE_PREVIEWS = YES;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
@@ -210,6 +211,7 @@
 		};
 		499CD4432AC5B799001AE8D8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 496EB72F2A6AE4DE00C1253B /* HelloSkip.xcconfig */;
 			buildSettings = {
 				ENABLE_PREVIEWS = YES;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
@@ -219,7 +221,6 @@
 		};
 		49F90C4B2A52156300F06D93 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 496EB72F2A6AE4DE00C1253B /* HelloSkip.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -239,7 +240,6 @@
 		};
 		49F90C4C2A52156300F06D93 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 496EB72F2A6AE4DE00C1253B /* HelloSkip.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
