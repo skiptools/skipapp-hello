@@ -8,104 +8,102 @@ public struct ContentView: View {
     @AppStorage("tab") var tab = ContentTab.welcome
     @State var viewModel = ViewModel()
     @State var appearance = ""
-    @State var isBeating = false
 
     public init() {
     }
 
     public var body: some View {
         TabView(selection: $tab) {
-            VStack(spacing: 0) {
-                Text("Hello [\(viewModel.name)](https://skip.tools)!")
-                    .padding()
-                Image(systemName: "heart.fill")
-                    .foregroundStyle(.red)
-                    .scaleEffect(isBeating ? 1.5 : 1.0)
-                    .animation(.easeInOut(duration: 1).repeatForever(), value: isBeating)
-                    .onAppear { isBeating = true }
+            NavigationStack {
+                WelcomeView()
             }
-            .font(.largeTitle)
             .tabItem { Label("Welcome", systemImage: "heart.fill") }
             .tag(ContentTab.welcome)
 
             NavigationStack {
-                List {
-                    ForEach(viewModel.items) { item in
-                        NavigationLink(value: item) {
-                            Label {
-                                Text(item.itemTitle)
-                            } icon: {
-                                if item.favorite {
-                                    Image(systemName: "star.fill")
-                                        .foregroundStyle(.yellow)
-                                }
-                            }
-                        }
-                    }
-                    .onDelete { offsets in
-                        viewModel.items.remove(atOffsets: offsets)
-                    }
-                    .onMove { fromOffsets, toOffset in
-                        viewModel.items.move(fromOffsets: fromOffsets, toOffset: toOffset)
-                    }
-                }
-                .navigationTitle(Text("\(viewModel.items.count) Items"))
-                .navigationDestination(for: Item.self) { item in
-                    ItemView(item: item, viewModel: $viewModel)
-                        .navigationTitle(item.itemTitle)
-                }
-                .toolbar {
-                    ToolbarItemGroup {
-                        Button {
-                            withAnimation {
-                                viewModel.items.insert(Item(), at: 0)
-                            }
-                        } label: {
-                            Label("Add", systemImage: "plus")
-                        }
-                    }
-                }
+                ItemListView()
+                    .navigationTitle(Text("\(viewModel.items.count) Items"))
             }
             .tabItem { Label("Home", systemImage: "house.fill") }
             .tag(ContentTab.home)
 
             NavigationStack {
-                Form {
-                    TextField("Name", text: $viewModel.name)
-                    Picker("Appearance", selection: $appearance) {
-                        Text("System").tag("")
-                        Text("Light").tag("light")
-                        Text("Dark").tag("dark")
-                    }
-                    HStack {
-                        #if SKIP
-                        ComposeView { ctx in // Mix in Compose code!
-                            androidx.compose.material3.Text("💚", modifier: ctx.modifier)
-                        }
-                        #else
-                        Text(verbatim: "💙")
-                        #endif
-                        if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String,
-                           let buildNumber = Bundle.main.infoDictionary?["CFBundleVersion"] as? String {
-                            Text("Version \(version) (\(buildNumber))")
-                                .foregroundStyle(.gray)
-                        }
-                        Text("Powered by [Skip](https://skip.tools)")
-                    }
-                    .foregroundStyle(.gray)
-                }
-                .navigationTitle("Settings")
+                SettingsView(appearance: $appearance)
+                    .navigationTitle("Settings")
             }
             .tabItem { Label("Settings", systemImage: "gearshape.fill") }
             .tag(ContentTab.settings)
         }
+        .environment(viewModel)
         .preferredColorScheme(appearance == "dark" ? .dark : appearance == "light" ? .light : nil)
+    }
+}
+
+struct WelcomeView : View {
+    @State var heartBeating = false
+    @Environment(ViewModel.self) var viewModel: ViewModel
+
+    var body: some View {
+        @Bindable var viewModel = viewModel
+        VStack(spacing: 0) {
+            Text("Hello [\(viewModel.name)](https://skip.tools)!")
+                .padding()
+            Image(systemName: "heart.fill")
+                .foregroundStyle(.red)
+                .scaleEffect(heartBeating ? 1.5 : 1.0)
+                .animation(.easeInOut(duration: 1).repeatForever(), value: heartBeating)
+                .onAppear { heartBeating = true }
+        }
+        .font(.largeTitle)
+    }
+}
+
+struct ItemListView : View {
+    @Environment(ViewModel.self) var viewModel: ViewModel
+
+    var body: some View {
+        @Bindable var viewModel = viewModel
+        List {
+            ForEach(viewModel.items) { item in
+                NavigationLink(value: item) {
+                    Label {
+                        Text(item.itemTitle)
+                    } icon: {
+                        if item.favorite {
+                            Image(systemName: "star.fill")
+                                .foregroundStyle(.yellow)
+                        }
+                    }
+                }
+            }
+            .onDelete { offsets in
+                viewModel.items.remove(atOffsets: offsets)
+            }
+            .onMove { fromOffsets, toOffset in
+                viewModel.items.move(fromOffsets: fromOffsets, toOffset: toOffset)
+            }
+        }
+        .navigationDestination(for: Item.self) { item in
+            ItemView(item: item)
+                .navigationTitle(item.itemTitle)
+        }
+        .toolbar {
+            ToolbarItemGroup {
+                Button {
+                    withAnimation {
+                        viewModel.items.insert(Item(), at: 0)
+                    }
+                } label: {
+                    Label("Add", systemImage: "plus")
+                }
+            }
+        }
     }
 }
 
 struct ItemView : View {
     @State var item: Item
-    @Binding var viewModel: ViewModel
+    @Environment(ViewModel.self) var viewModel: ViewModel
     @Environment(\.dismiss) var dismiss
 
     var body: some View {
@@ -132,6 +130,40 @@ struct ItemView : View {
                 }
                 .disabled(!viewModel.isUpdated(item))
             }
+        }
+    }
+}
+
+struct SettingsView : View {
+    @Environment(ViewModel.self) var viewModel: ViewModel
+    @Binding var appearance: String
+
+    var body: some View {
+        @Bindable var viewModel = viewModel
+        Form {
+            TextField("Name", text: $viewModel.name)
+            Picker("Appearance", selection: $appearance) {
+                Text("System").tag("")
+                Text("Light").tag("light")
+                Text("Dark").tag("dark")
+            }
+            HStack {
+                #if SKIP
+                ComposeView { ctx in // Mix in Compose code!
+                    androidx.compose.material3.Text("💚", modifier: ctx.modifier)
+                }
+                #else
+                Text(verbatim: "💙")
+                #endif
+                if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String,
+                   let buildNumber = Bundle.main.infoDictionary?["CFBundleVersion"] as? String {
+                    Text("Version \(version) (\(buildNumber))")
+                        .foregroundStyle(.gray)
+                }
+                Text("Powered by [Skip](https://skip.tools)")
+            }
+            .foregroundStyle(.gray)
+
         }
     }
 }
