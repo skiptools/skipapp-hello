@@ -68,12 +68,34 @@ open class MainActivity: AppCompatActivity {
         //ActivityCompat.requestPermissions(self, permissions.toTypedArray(), requestTag)
     }
 
-    override fun onSaveInstanceState(bundle: android.os.Bundle): Unit = super.onSaveInstanceState(bundle)
+    override fun onStart() {
+        super.onStart()
+        HelloSkipAppDelegate.shared.onStart(this)
+    }
 
-    override fun onRestoreInstanceState(bundle: android.os.Bundle) {
-        // Usually you restore your state in onCreate(). It is possible to restore it in onRestoreInstanceState() as well, but not very common. (onRestoreInstanceState() is called after onStart(), whereas onCreate() is called before onStart().
-        logger.info("onRestoreInstanceState")
-        super.onRestoreInstanceState(bundle)
+    override fun onResume() {
+        super.onResume()
+        HelloSkipAppDelegate.shared.onResume(this)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        HelloSkipAppDelegate.shared.onPause(this)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        HelloSkipAppDelegate.shared.onStop(this)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        HelloSkipAppDelegate.shared.onDestroy(this)
+    }
+
+    override fun onLowMemory() {
+        super.onLowMemory()
+        HelloSkipAppDelegate.shared.onLowMemory(this)
     }
 
     override fun onRestart() {
@@ -81,29 +103,12 @@ open class MainActivity: AppCompatActivity {
         super.onRestart()
     }
 
-    override fun onStart() {
-        logger.info("onStart")
-        super.onStart()
-    }
+    override fun onSaveInstanceState(bundle: android.os.Bundle): Unit = super.onSaveInstanceState(bundle)
 
-    override fun onResume() {
-        logger.info("onResume")
-        super.onResume()
-    }
-
-    override fun onPause() {
-        logger.info("onPause")
-        super.onPause()
-    }
-
-    override fun onStop() {
-        logger.info("onStop")
-        super.onStop()
-    }
-
-    override fun onDestroy() {
-        logger.info("onDestroy")
-        super.onDestroy()
+    override fun onRestoreInstanceState(bundle: android.os.Bundle) {
+        // Usually you restore your state in onCreate(). It is possible to restore it in onRestoreInstanceState() as well, but not very common. (onRestoreInstanceState() is called after onStart(), whereas onCreate() is called before onStart().
+        logger.info("onRestoreInstanceState")
+        super.onRestoreInstanceState(bundle)
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: kotlin.Array<String>, grantResults: IntArray) {
@@ -121,7 +126,7 @@ internal fun PresentationRootView(context: ComposeContext) {
     PresentationRoot(defaultColorScheme = colorScheme, context = context) { ctx ->
         val contentContext = ctx.content()
         Box(modifier = ctx.modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-            RootView().Compose(context = contentContext)
+            HelloSkipRootView().Compose(context = contentContext)
         }
     }
 }

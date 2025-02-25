@@ -1,18 +1,15 @@
 import SwiftUI
 
-public enum ContentTab: String, Hashable {
+enum ContentTab: String, Hashable {
     case welcome, home, settings
 }
 
-public struct ContentView: View {
+struct ContentView: View {
     @AppStorage("tab") var tab = ContentTab.welcome
     @State var viewModel = ViewModel()
     @State var appearance = ""
 
-    public init() {
-    }
-
-    public var body: some View {
+    var body: some View {
         TabView(selection: $tab) {
             NavigationStack {
                 WelcomeView()
