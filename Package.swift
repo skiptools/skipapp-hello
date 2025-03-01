@@ -19,8 +19,8 @@ let package = Package(
         .library(name: "HelloSkipApp", type: .dynamic, targets: ["HelloSkip"]),
     ],
     dependencies: [
-        .package(url: "https://source.skip.tools/skip.git", from: "1.0.0"),
-        .package(url: "https://source.skip.tools/skip-ui.git", from: "1.0.0")
+        .package(url: "https://source.skip.tools/skip.git", from: "1.3.0"),
+        .package(url: "https://source.skip.tools/skip-ui.git", from: "1.26.3")
     ],
     targets: [
         .target(name: "HelloSkip", dependencies: (zero ? [] : [

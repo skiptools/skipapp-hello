@@ -33,5 +33,5 @@ jobs:
           brew install skiptools/skip/skip
           ./skipapp-hello-repo/scripts/diff_template.sh skipapp-hello skipapp-hello-repo
   call-workflow:
-    uses: skiptools/actions/.github/workflows/skip-app.yml@main
+    uses: skiptools/actions/.github/workflows/skip-app.yml@v1
 
