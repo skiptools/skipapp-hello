@@ -24,6 +24,8 @@ android {
         jniLibs {
             keepDebugSymbols.add("**/*.so")
             pickFirsts.add("**/*.so")
+            // this option will compress .so files, which can reduce .apk size at a performance cost for app startup
+            //useLegacyPackaging = true
         }
     }
 
