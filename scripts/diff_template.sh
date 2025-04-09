@@ -4,7 +4,7 @@ AGAINST=${2:-"."}
 
 TMPDIR=`mktemp -d`
 cd ${TMPDIR}
-skip init --no-build --zero --appid=skip.hello.App --version 1.0.0 ${PACKAGE} HelloSkip
+${SKIPCMD:-skip} init --no-build --zero --appid=skip.hello.App --version 1.0.0 ${PACKAGE} HelloSkip
 cd -
 
 # make sure that the repo exactly matches the template,

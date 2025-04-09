@@ -1,30 +1,27 @@
 import Foundation
 import Observation
-import OSLog
-
-fileprivate let logger: Logger = Logger(subsystem: "HelloSkip", category: "HelloSkip")
 
 /// The Observable ViewModel used by the application.
 @Observable public class ViewModel {
-    public var name = "Skipper"
-    public var items: [Item] = loadItems() {
+    var name = "Skipper"
+    var items: [Item] = loadItems() {
         didSet { saveItems() }
     }
 
-    public init() {
+    init() {
     }
 
-    public func clear() {
+    func clear() {
         items.removeAll()
     }
 
-    public func isUpdated(_ item: Item) -> Bool {
+    func isUpdated(_ item: Item) -> Bool {
         item != items.first { i in
             i.id == item.id
         }
     }
 
-    public func save(item: Item) {
+    func save(item: Item) {
         items = items.map { i in
             i.id == item.id ? item : i
         }
@@ -32,14 +29,14 @@ fileprivate let logger: Logger = Logger(subsystem: "HelloSkip", category: "Hello
 }
 
 /// An individual item held by the ViewModel
-public struct Item : Identifiable, Hashable, Codable {
-    public let id: UUID
-    public var date: Date
-    public var favorite: Bool
-    public var title: String
-    public var notes: String
+struct Item : Identifiable, Hashable, Codable {
+    let id: UUID
+    var date: Date
+    var favorite: Bool
+    var title: String
+    var notes: String
 
-    public init(id: UUID = UUID(), date: Date = .now, favorite: Bool = false, title: String = "", notes: String = "") {
+    init(id: UUID = UUID(), date: Date = .now, favorite: Bool = false, title: String = "", notes: String = "") {
         self.id = id
         self.date = date
         self.favorite = favorite
@@ -47,15 +44,15 @@ public struct Item : Identifiable, Hashable, Codable {
         self.notes = notes
     }
 
-    public var itemTitle: String {
+    var itemTitle: String {
         !title.isEmpty ? title : dateString
     }
 
-    public var dateString: String {
+    var dateString: String {
         date.formatted(date: .complete, time: .omitted)
     }
 
-    public var dateTimeString: String {
+    var dateTimeString: String {
         date.formatted(date: .abbreviated, time: .shortened)
     }
 }
