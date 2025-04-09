@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		49231BAC2AC5BCEF00F98ADF /* HelloSkipApp in Frameworks */ = {isa = PBXBuildFile; productRef = 49231BAB2AC5BCEF00F98ADF /* HelloSkipApp */; };
-		49231BAD2AC5BCEF00F98ADF /* HelloSkipApp in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 49231BAB2AC5BCEF00F98ADF /* HelloSkipApp */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		491F27822DA55B72004926EE /* HelloSkip in Frameworks */ = {isa = PBXBuildFile; productRef = 491F27812DA55B72004926EE /* HelloSkip */; };
+		491F27832DA55B72004926EE /* HelloSkip in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 491F27812DA55B72004926EE /* HelloSkip */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		496BDBEE2B8A7E9C00C09264 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 496BDBED2B8A7E9C00C09264 /* Localizable.xcstrings */; };
 		499CD43B2AC5B799001AE8D8 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F90C2B2A52156200F06D93 /* Main.swift */; };
 		499CD4402AC5B799001AE8D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49F90C2F2A52156300F06D93 /* Assets.xcassets */; };
@@ -21,7 +21,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				49231BAD2AC5BCEF00F98ADF /* HelloSkipApp in Embed Frameworks */,
+				491F27832DA55B72004926EE /* HelloSkip in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -29,9 +29,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4900101C2BACEA710000DE33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		493609562A6B7EAE00C401E2 /* HelloSkip */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = HelloSkip; path = ..; sourceTree = "<group>"; };
 		496BDBEB2B89A47800C09264 /* HelloSkip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloSkip.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4900101C2BACEA710000DE33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Info.plist"; sourceTree = "<group>"; };
 		496BDBED2B8A7E9C00C09264 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = Localizable.xcstrings; path = ../Sources/HelloSkip/Resources/Localizable.xcstrings; sourceTree = "<group>"; };
 		496EB72F2A6AE4DE00C1253A /* Skip.env */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Skip.env; path = ../Skip.env; sourceTree = "<group>"; };
 		496EB72F2A6AE4DE00C1253B /* HelloSkip.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = HelloSkip.xcconfig; sourceTree = "<group>"; };
@@ -47,7 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49231BAC2AC5BCEF00F98ADF /* HelloSkipApp in Frameworks */,
+				491F27822DA55B72004926EE /* HelloSkip in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,9 +98,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		499CD4382AC5B799001AE8D8 /* HelloSkip */ = {
+		499CD4382AC5B799001AE8D8 /* HelloSkip App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 499CD4412AC5B799001AE8D8 /* Build configuration list for PBXNativeTarget "HelloSkip" */;
+			buildConfigurationList = 499CD4412AC5B799001AE8D8 /* Build configuration list for PBXNativeTarget "HelloSkip App" */;
 			buildPhases = (
 				499CD43A2AC5B799001AE8D8 /* Sources */,
 				499CD43C2AC5B799001AE8D8 /* Frameworks */,
@@ -112,9 +112,9 @@
 			);
 			dependencies = (
 			);
-			name = HelloSkip;
+			name = "HelloSkip App";
 			packageProductDependencies = (
-				49231BAB2AC5BCEF00F98ADF /* HelloSkipApp */,
+				491F27812DA55B72004926EE /* HelloSkip */,
 			);
 			productName = App;
 			productReference = 496BDBEB2B89A47800C09264 /* HelloSkip.app */;
@@ -128,7 +128,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1540;
+				LastUpgradeCheck = 1630;
 			};
 			buildConfigurationList = 49F90C232A52156200F06D93 /* Build configuration list for PBXProject "HelloSkip" */;
 			compatibilityVersion = "Xcode 14.0";
@@ -148,7 +148,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				499CD4382AC5B799001AE8D8 /* HelloSkip */,
+				499CD4382AC5B799001AE8D8 /* HelloSkip App */,
 			);
 		};
 /* End PBXProject section */
@@ -183,7 +183,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = "/bin/sh -e";
-			shellScript = "if [ \"${SKIP_ZERO}\" != \"\" ]; then\n	echo \"note: skipping skip due to SKIP_ZERO\"\n	exit 0\nelif [ \"${ENABLE_PREVIEWS}\" == \"YES\" ]; then\n	echo \"note: skipping skip due to ENABLE_PREVIEWS\"\n	exit 0\nelif [ \"${ACTION}\" == \"install\" ]; then\n	echo \"note: skipping skip due to archive install\"\n	exit 0\nelse\n	SKIP_ACTION=\"${SKIP_ACTION:-launch}\"\nfi\nPATH=${BUILD_ROOT}/Debug:${BUILD_ROOT}/../../SourcePackages/artifacts/skip/skip/skip.artifactbundle/macos:${PATH}:${HOMEBREW_PREFIX:-/opt/homebrew}/bin\necho \"note: running gradle build with: $(which skip) gradle -p ${PWD}/../Android ${SKIP_ACTION:-launch}${CONFIGURATION:-Debug}\"\nskip gradle -p ../Android ${SKIP_ACTION:-launch}${CONFIGURATION:-Debug}\n";
+			shellScript = "if [ \"${SKIP_ZERO}\" != \"\" ]; then\n  echo \"note: skipping skip due to SKIP_ZERO\"\n  exit 0\nelif [ \"${ENABLE_PREVIEWS}\" == \"YES\" ]; then\n  echo \"note: skipping skip due to ENABLE_PREVIEWS\"\n  exit 0\nelif [ \"${ACTION}\" == \"install\" ]; then\n  echo \"note: skipping skip due to archive install\"\n  exit 0\nelse\n  SKIP_ACTION=\"${SKIP_ACTION:-launch}\"\nfi\nPATH=${BUILD_ROOT}/Debug:${BUILD_ROOT}/../../SourcePackages/artifacts/skip/skip/skip.artifactbundle/macos:${PATH}:${HOMEBREW_PREFIX:-/opt/homebrew}/bin\necho \"note: running gradle build with: $(which skip) gradle -p ${PWD}/../Android ${SKIP_ACTION:-launch}${CONFIGURATION:-Debug}\"\nskip gradle -p ../Android ${SKIP_ACTION:-launch}${CONFIGURATION:-Debug}\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -258,7 +258,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		499CD4412AC5B799001AE8D8 /* Build configuration list for PBXNativeTarget "HelloSkip" */ = {
+		499CD4412AC5B799001AE8D8 /* Build configuration list for PBXNativeTarget "HelloSkip App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				499CD4422AC5B799001AE8D8 /* Debug */,
@@ -279,9 +279,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		49231BAB2AC5BCEF00F98ADF /* HelloSkipApp */ = {
+		491F27812DA55B72004926EE /* HelloSkip */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = HelloSkipApp;
+			productName = HelloSkip;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

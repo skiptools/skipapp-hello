@@ -70,32 +70,32 @@ open class MainActivity: AppCompatActivity {
 
     override fun onStart() {
         super.onStart()
-        HelloSkipAppDelegate.shared.onStart(this)
+        HelloSkipAppDelegate.shared.onStart()
     }
 
     override fun onResume() {
         super.onResume()
-        HelloSkipAppDelegate.shared.onResume(this)
+        HelloSkipAppDelegate.shared.onResume()
     }
 
     override fun onPause() {
         super.onPause()
-        HelloSkipAppDelegate.shared.onPause(this)
+        HelloSkipAppDelegate.shared.onPause()
     }
 
     override fun onStop() {
         super.onStop()
-        HelloSkipAppDelegate.shared.onStop(this)
+        HelloSkipAppDelegate.shared.onStop()
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        HelloSkipAppDelegate.shared.onDestroy(this)
+        HelloSkipAppDelegate.shared.onDestroy()
     }
 
     override fun onLowMemory() {
         super.onLowMemory()
-        HelloSkipAppDelegate.shared.onLowMemory(this)
+        HelloSkipAppDelegate.shared.onLowMemory()
     }
 
     override fun onRestart() {

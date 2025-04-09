@@ -1,7 +1,66 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "%lld Items" : {
+      "comment" : "Header title for a list that contains the number of items",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld elementos"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld éléments"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アイテム数 %lld"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld 个条目"
+          }
+        }
+      }
+    },
+    "Add" : {
+      "comment" : "Button in items list that will cause a new item to be added",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Añadir"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajouter"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "追加"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "添加"
+          }
+        }
+      }
+    },
     "Appearance" : {
+      "comment" : "Settings select label for the interface style of the controls (light, dark, or default)",
       "localizations" : {
         "es" : {
           "stringUnit" : {
@@ -29,7 +88,37 @@
         }
       }
     },
+    "Cancel" : {
+      "comment" : "Button title indicating that the operation should be cancelled",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancelar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Annuler"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キャンセル"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "取消"
+          }
+        }
+      }
+    },
     "Dark" : {
+      "comment" : "Menu item indicating that the appearance should be in dark mode",
       "localizations" : {
         "es" : {
           "stringUnit" : {
@@ -52,12 +141,71 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "暗"
+            "value" : "深色"
+          }
+        }
+      }
+    },
+    "Date" : {
+      "comment" : "Item editor form label for the Date field",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fecha"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Date"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "日付"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "日期"
+          }
+        }
+      }
+    },
+    "Favorite" : {
+      "comment" : "Item editor title label for marking the item as a favorite",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Favorito"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Favori"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " favouri"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "收藏"
           }
         }
       }
     },
     "Hello [%@](https://skip.tools)!" : {
+      "comment" : "Welcome tab contents",
       "localizations" : {
         "es" : {
           "stringUnit" : {
@@ -74,18 +222,19 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "こんにちは、[%@](https://skip.tools)!"
+            "value" : "こんにちは [%@](https://skip.tools)"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "你好，[%@](https://skip.tools)!"
+            "value" : "你好 [%@](https://skip.tools)"
           }
         }
       }
     },
     "Home" : {
+      "comment" : "Tab bar item title for the Home tab",
       "localizations" : {
         "es" : {
           "stringUnit" : {
@@ -108,12 +257,13 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "主页"
+            "value" : "首页"
           }
         }
       }
     },
     "Light" : {
+      "comment" : "Menu item indicating that the appearance should be in light mode",
       "localizations" : {
         "es" : {
           "stringUnit" : {
@@ -130,18 +280,19 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ライト"
+            "value" : "明るい"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "光"
+            "value" : "浅色"
           }
         }
       }
     },
     "Name" : {
+      "comment" : "Placeholder title for the Name field in a form",
       "localizations" : {
         "es" : {
           "stringUnit" : {
@@ -169,35 +320,95 @@
         }
       }
     },
-    "Powered by Skip and %@" : {
+    "Notes" : {
+      "comment" : "Item editor form label for the Notes field",
       "localizations" : {
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Potenciado por %@"
+            "value" : "Notas"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Propulsé par %@"
+            "value" : "Notes"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@動力"
+            "value" : "ノート"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "由%@提供动力"
+            "value" : "笔记"
+          }
+        }
+      }
+    },
+    "Powered by [Skip](https://skip.tools)" : {
+      "comment" : "Link markdown text for the Powered by… label",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impulsado por [Skip](https://skip.tools)"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fonctionnalités offertes par [Skip](https://skip.tools)"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "[Skip](https://skip.tools) を使って動かしています"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "由[Skip](https://skip.tools)提供支持"
+          }
+        }
+      }
+    },
+    "Save" : {
+      "comment" : "Button title indicating that the current contents should be saved",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guardar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enregistrer"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存"
           }
         }
       }
     },
     "Settings" : {
+      "comment" : "Tab bar item title for the Settings tab",
       "localizations" : {
         "es" : {
           "stringUnit" : {
@@ -226,6 +437,7 @@
       }
     },
     "System" : {
+      "comment" : "Menu item indicating that the appearance should be in the default system mode",
       "localizations" : {
         "es" : {
           "stringUnit" : {
@@ -253,7 +465,72 @@
         }
       }
     },
+    "Title" : {
+      "comment" : "Label for the item editor form indicating the title of the item",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Título"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Titre"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "タイトル"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "标题"
+          }
+        }
+      }
+    },
+    "Version %@ (%@)" : {
+      "comment" : "Settings label showing the current version of the app",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Version %1$@ (%2$@)"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Versión %1$@ (%2$@)"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Version %1$@ (%2$@)"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "バージョン %1$@ (%2$@)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "版本 %1$@ (%2$@)"
+          }
+        }
+      }
+    },
     "Welcome" : {
+      "comment" : "Tab bar item title for the Welcome tab",
       "localizations" : {
         "es" : {
           "stringUnit" : {

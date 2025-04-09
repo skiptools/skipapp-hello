@@ -13,11 +13,11 @@ import HelloSkip
         .onChange(of: scenePhase) { oldPhase, newPhase in
             switch newPhase {
             case .active:
-                AppDelegate.shared.onResume(appDelegate.application)
+                AppDelegate.shared.onResume()
             case .inactive:
-                AppDelegate.shared.onPause(appDelegate.application)
+                AppDelegate.shared.onPause()
             case .background:
-                AppDelegate.shared.onStop(appDelegate.application)
+                AppDelegate.shared.onStop()
             @unknown default:
                 print("unknown app phase: \(newPhase)")
             }
@@ -41,24 +41,24 @@ class AppMainDelegate: NSObject, AppMainDelegateBase {
 
     #if canImport(UIKit)
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        AppDelegate.shared.onStart(application)
+        AppDelegate.shared.onStart()
         return true
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
-        AppDelegate.shared.onDestroy(application)
+        AppDelegate.shared.onDestroy()
     }
 
     func applicationDidReceiveMemoryWarning(_ application: UIApplication) {
-        AppDelegate.shared.onLowMemory(application)
+        AppDelegate.shared.onLowMemory()
     }
     #elseif canImport(AppKit)
     func applicationWillFinishLaunching(_ notification: Notification) {
-        AppDelegate.shared.onStart(application)
+        AppDelegate.shared.onStart()
     }
 
     func applicationWillTerminate(_ application: Notification) {
-        AppDelegate.shared.onDestroy(application)
+        AppDelegate.shared.onDestroy()
     }
     #endif
 

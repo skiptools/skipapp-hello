@@ -10,5 +10,5 @@ cd -
 # make sure that the repo exactly matches the template,
 # allowing for changes in some files, as well as
 # dependency versions
-diff --ignore-space-change --exclude=README.md --exclude=.build --exclude=.git --exclude=scripts --exclude=.github --exclude=.DS_Store --exclude=.gitignore --exclude='*.png' --exclude=Package.resolved --exclude=Skip.env --exclude=CHANGELOG.md --exclude=project.xcworkspace --exclude=proguard-rules.pro -I 'url: "https://source.skip.tools/' -r ${TMPDIR}/${PACKAGE} ${AGAINST}
+diff --ignore-space-change --exclude=README.md --exclude=.build --exclude=.git --exclude=scripts --exclude=.github --exclude=.DS_Store --exclude=.gitignore --exclude='*.png' --exclude=Package.resolved --exclude=Skip.env --exclude=CHANGELOG.md --exclude=project.xcworkspace -I 'url: "https://source.skip.tools/' -r ${TMPDIR}/${PACKAGE} ${AGAINST}
 

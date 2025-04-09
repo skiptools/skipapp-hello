@@ -8,6 +8,7 @@ lane :assemble do |options|
   # only build the iOS side of the app
   ENV["SKIP_ZERO"] = "true"
   build_app(
+    scheme: "HelloSkip App",
     sdk: "iphoneos",
     xcconfig: "fastlane/AppStore.xcconfig",
     xcargs: "-skipPackagePluginValidation -skipMacroValidation",
