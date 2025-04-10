@@ -16,8 +16,6 @@ permissions:
 jobs:
   verify-app:
     runs-on: macos-13
-    env:
-      DEVELOPER_DIR: /Applications/Xcode_15.0.app/Contents/Developer
     steps:
       - name: Cache Homebrew packages
         uses: actions/cache@v4
@@ -30,7 +28,6 @@ jobs:
           path: skipapp-hello-repo
       - name: Compare hello-skip template with skipapp-hello repo
         run: |
-          brew install skiptools/skip/skip
           ./skipapp-hello-repo/scripts/diff_template.sh skipapp-hello skipapp-hello-repo
   call-workflow:
     uses: skiptools/actions/.github/workflows/skip-app.yml@v1
