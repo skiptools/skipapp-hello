@@ -1,9 +1,9 @@
 import Foundation
 import Observation
+import OSLog
 
 /// The Observable ViewModel used by the application.
 @Observable public class ViewModel {
-    var name = "Skipper"
     var items: [Item] = loadItems() {
         didSet { saveItems() }
     }

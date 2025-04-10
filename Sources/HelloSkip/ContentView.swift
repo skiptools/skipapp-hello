@@ -6,13 +6,14 @@ enum ContentTab: String, Hashable {
 
 struct ContentView: View {
     @AppStorage("tab") var tab = ContentTab.welcome
+    @AppStorage("name") var welcomeName = "Skipper"
+    @AppStorage("appearance") var appearance = ""
     @State var viewModel = ViewModel()
-    @State var appearance = ""
 
     var body: some View {
         TabView(selection: $tab) {
             NavigationStack {
-                WelcomeView()
+                WelcomeView(welcomeName: $welcomeName)
             }
             .tabItem { Label("Welcome", systemImage: "heart.fill") }
             .tag(ContentTab.welcome)
@@ -25,7 +26,7 @@ struct ContentView: View {
             .tag(ContentTab.home)
 
             NavigationStack {
-                SettingsView(appearance: $appearance)
+                SettingsView(appearance: $appearance, welcomeName: $welcomeName)
                     .navigationTitle("Settings")
             }
             .tabItem { Label("Settings", systemImage: "gearshape.fill") }
@@ -38,12 +39,13 @@ struct ContentView: View {
 
 struct WelcomeView : View {
     @State var heartBeating = false
+    @Binding var welcomeName: String
     @Environment(ViewModel.self) var viewModel: ViewModel
 
     var body: some View {
         @Bindable var viewModel = viewModel
         VStack(spacing: 0) {
-            Text("Hello [\(viewModel.name)](https://skip.tools)!")
+            Text("Hello [\(welcomeName)](https://skip.tools)!")
                 .padding()
             Image(systemName: "heart.fill")
                 .foregroundStyle(.red)
@@ -134,33 +136,40 @@ struct ItemView : View {
 struct SettingsView : View {
     @Environment(ViewModel.self) var viewModel: ViewModel
     @Binding var appearance: String
+    @Binding var welcomeName: String
 
     var body: some View {
         @Bindable var viewModel = viewModel
         Form {
-            TextField("Name", text: $viewModel.name)
+            TextField("Name", text: $welcomeName)
             Picker("Appearance", selection: $appearance) {
                 Text("System").tag("")
                 Text("Light").tag("light")
                 Text("Dark").tag("dark")
             }
+            if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String,
+               let buildNumber = Bundle.main.infoDictionary?["CFBundleVersion"] as? String {
+                Text("Version \(version) (\(buildNumber))")
+            }
             HStack {
-                #if SKIP
-                ComposeView { ctx in // Mix in Compose code!
-                    androidx.compose.material3.Text("💚", modifier: ctx.modifier)
-                }
-                #else
-                Text(verbatim: "💙")
-                #endif
-                if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String,
-                   let buildNumber = Bundle.main.infoDictionary?["CFBundleVersion"] as? String {
-                    Text("Version \(version) (\(buildNumber))")
-                        .foregroundStyle(.gray)
-                }
+                PlatformHeartView()
                 Text("Powered by [Skip](https://skip.tools)")
             }
-            .foregroundStyle(.gray)
-
         }
     }
 }
+
+/// A view that shows a blue heart on iOS and a green heart on Android.
+struct PlatformHeartView : View {
+    var body: some View {
+       #if SKIP
+       ComposeView { ctx in // Mix in Compose code!
+           androidx.compose.material3.Text("💚", modifier: ctx.modifier)
+       }
+       #else
+       Text(verbatim: "💙")
+       #endif
+    }
+}
+
+ 

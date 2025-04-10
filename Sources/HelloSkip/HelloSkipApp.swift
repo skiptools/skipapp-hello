@@ -24,7 +24,7 @@ public struct HelloSkipRootView : View {
 ///
 /// These functions can update a shared observable object to communicate app state changes to interested views.
 /// The sender for each of these functions will be either a `UIApplication` (iOS) or `AppCompatActivity` (Android)
-public class HelloSkipAppDelegate {
+public final class HelloSkipAppDelegate : Sendable {
     public static let shared = HelloSkipAppDelegate()
 
     private init() {
