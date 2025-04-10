@@ -171,5 +171,3 @@ struct PlatformHeartView : View {
        #endif
     }
 }
-
- 
