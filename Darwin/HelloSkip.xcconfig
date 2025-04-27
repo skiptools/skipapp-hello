@@ -3,8 +3,10 @@
 // Set the action that will be executed as part of the Xcode Run Script phase
 // Setting to "launch" will build and run the app in the first open Android emulator or device
 // Setting to "build" will just run gradle build, but will not launch the app
+// Setting to "none" will completely disable the build and launch of the Android app
 SKIP_ACTION = launch
 //SKIP_ACTION = build
+//SKIP_ACTION = none
 
 ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon
 ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor
