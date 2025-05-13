@@ -1,6 +1,6 @@
 # HelloSkip
 
-This is a [Skip](https://skip.tools) dual-platform app project.
+This is a [Skip Lite](https://skip.tools) dual-platform app project.
 It builds a native app for both iOS and Android.
 
 This is the exact project with will be output when running the command:
@@ -62,8 +62,6 @@ skipapp-hello
         │   └── skip.yml
         └── XCSkipTests.swift
 ```
-
-
 
 ## Building
 
