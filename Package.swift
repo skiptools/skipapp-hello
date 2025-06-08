@@ -1,4 +1,4 @@
-// swift-tools-version: 5.9
+// swift-tools-version: 6.0
 // This is a Skip (https://skip.tools) package.
 import PackageDescription
 
@@ -14,7 +14,7 @@ let package = Package(
         .library(name: "HelloSkip", type: .dynamic, targets: ["HelloSkip"]),
     ],
     dependencies: [
-        .package(url: "https://source.skip.tools/skip.git", from: "1.0.0"),
+        .package(url: "https://source.skip.tools/skip.git", from: "1.5.22"),
         .package(url: "https://source.skip.tools/skip-ui.git", from: "1.0.0")
     ],
     targets: [

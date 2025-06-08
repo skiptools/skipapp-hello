@@ -4,7 +4,7 @@ AGAINST=${2:-"."}
 
 TMPDIR=`mktemp -d`
 cd ${TMPDIR}
-${SKIPCMD:-skip} init --no-build --zero --appid=skip.hello.App --version 1.0.0 ${PACKAGE} HelloSkip
+${SKIPCMD:-skip} init --no-build --zero --transpiled-app --appid=skip.hello.App --version 1.0.0 ${PACKAGE} HelloSkip
 
 cd -
 
