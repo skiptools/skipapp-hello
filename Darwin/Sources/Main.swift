@@ -49,7 +49,6 @@ class AppMainDelegate: NSObject, AppMainDelegateBase {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         AppDelegate.shared.onLaunch()
-        application.registerForRemoteNotifications()
         return true
     }
 

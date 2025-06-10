@@ -60,8 +60,6 @@ open class MainActivity: AppCompatActivity {
             }
         }
 
-        // when using Messaging, uncomment to register for message receipt
-        //Messaging.messaging().onActivityCreated(this)
         AppDelegate.shared.onLaunch()
 
         // Example of requesting permissions on startup.

@@ -31,17 +31,10 @@ public final class HelloSkipAppDelegate : Sendable {
 
     public func onInit() {
         logger.debug("onInit")
-
-        // Uncomment to configure Firebase and notifications
-        //FirebaseApp.configure()
-        //Messaging.messaging().delegate = messageDelegate
-        //UNUserNotificationCenter.current().delegate = notificationDelegate
     }
 
     public func onLaunch() {
         logger.debug("onLaunch")
-        // Ask for permissions at a time appropriate for your app
-        //notificationDelegate.requestPermission()
     }
 
     public func onResume() {
