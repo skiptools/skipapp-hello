@@ -49,7 +49,7 @@ struct WelcomeView : View {
                 .foregroundStyle(.red)
                 .scaleEffect(heartBeating ? 1.5 : 1.0)
                 .animation(.easeInOut(duration: 1).repeatForever(), value: heartBeating)
-                .onAppear { heartBeating = true }
+                .task { heartBeating = true }
         }
         .font(.largeTitle)
     }
