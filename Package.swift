@@ -9,12 +9,12 @@ let skipstone = !zero ? [Target.PluginUsage.plugin(name: "skipstone", package: "
 let package = Package(
     name: "skipapp-hello",
     defaultLocalization: "en",
-    platforms: [.iOS(.v17), .macOS(.v14), .tvOS(.v17), .watchOS(.v10), .macCatalyst(.v17)],
+    platforms: [.iOS(.v17), .macOS(.v14)],
     products: [
         .library(name: "HelloSkip", type: .dynamic, targets: ["HelloSkip"]),
     ],
     dependencies: [
-        .package(url: "https://source.skip.tools/skip.git", from: "1.5.22"),
+        .package(url: "https://source.skip.tools/skip.git", from: "1.6.1"),
         .package(url: "https://source.skip.tools/skip-ui.git", from: "1.0.0")
     ],
     targets: [
