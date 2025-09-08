@@ -3,6 +3,7 @@
   "contests": "NONE",
   "gamblingSimulated": "NONE",
   "horrorOrFearThemes": "NONE",
+  "koreaAgeRatingOverride": "NONE",
   "matureOrSuggestiveThemes": "NONE",
   "medicalOrTreatmentInformation": "NONE",
   "profanityOrCrudeHumor": "NONE",
@@ -12,5 +13,6 @@
   "violenceRealisticProlongedGraphicOrSadistic": "NONE",
   "violenceRealistic": "NONE",
   "gambling": false,
+  "lootBox": false,
   "unrestrictedWebAccess": false
 }
