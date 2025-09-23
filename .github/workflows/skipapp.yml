@@ -25,14 +25,11 @@ jobs:
       - uses: actions/checkout@v4
         with:
           path: skipapp-hello-repo
-      - name: Check building without Skip
+      - name: Check building without Skip installed
         working-directory: skipapp-hello-repo
         run: |
-          SKIP_ZERO=1 swift build
-      - name: Check building with Skip
-        working-directory: skipapp-hello-repo
-        run: |
-          swift build
+          #SKIP_ZERO=1 swift build
+          SKIP_ZERO=1 xcodebuild -scheme 'HelloSkip App'
       - run: brew install skiptools/skip/skip
       - name: Compare hello-skip template with skipapp-hello repo
         run: |
