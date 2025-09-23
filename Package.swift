@@ -4,7 +4,7 @@ import PackageDescription
 
 // Set SKIP_ZERO=1 to build without Skip libraries
 let zero = Context.environment["SKIP_ZERO"] != nil
-let skipstone = !zero ? [Target.PluginUsage.plugin(name: "skipstone", package: "skip")] : []
+let skipstone = false ? [Target.PluginUsage.plugin(name: "skipstone", package: "skip")] : []
 
 let package = Package(
     name: "skipapp-hello",
