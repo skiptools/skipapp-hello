@@ -14,18 +14,27 @@ permissions:
   attestations: write
 
 jobs:
+  check-noskip:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check building without Skip installed
+        run: |
+          SKIP_ZERO=1 xcodebuild -scheme 'HelloSkip App' -configuration Release -sdk 'iphoneos' -destination 'generic/platform=iOS' -skipPackagePluginValidation archive CODE_SIGNING_ALLOWED=NO
+          #SKIP_ZERO=1 swift build
+          #SKIP_ZERO=1 xcodebuild -scheme 'HelloSkip App'
   verify-app:
-    runs-on: macos-13
+    runs-on: macos-latest
     steps:
       - name: Cache Homebrew packages
         uses: actions/cache@v4
         with:
           path: ~/Library/Caches/Homebrew
           key: homebrew-packages
-      - run: brew install skiptools/skip/skip
       - uses: actions/checkout@v4
         with:
           path: skipapp-hello-repo
+      - run: brew install skiptools/skip/skip
       - name: Compare hello-skip template with skipapp-hello repo
         run: |
           ./skipapp-hello-repo/scripts/diff_template.sh skipapp-hello skipapp-hello-repo
