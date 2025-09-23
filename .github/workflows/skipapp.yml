@@ -21,7 +21,8 @@ jobs:
       - name: Check building without Skip installed
         run: |
           #SKIP_ZERO=1 swift build
-          SKIP_ZERO=1 xcodebuild -scheme 'HelloSkip App'
+          #SKIP_ZERO=1 xcodebuild -scheme 'HelloSkip App'
+          SKIP_ZERO=1 xcodebuild -scheme 'HelloSkip App' -configuration Release -sdk 'iphoneos' -destination 'generic/platform=iOS' archive CODE_SIGNING_ALLOWED=NO
   verify-app:
     runs-on: macos-latest
     steps:
