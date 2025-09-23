@@ -20,7 +20,9 @@ jobs:
       - uses: actions/checkout@v4
       - name: Check building without Skip installed
         run: |
-          swift build
+          SKIP_ZERO=1 xcodebuild -scheme 'HelloSkip App' -configuration Release -sdk 'iphoneos' -destination 'generic/platform=iOS' -skipPackagePluginValidation archive CODE_SIGNING_ALLOWED=NO
+          #SKIP_ZERO=1 swift build
+          #SKIP_ZERO=1 xcodebuild -scheme 'HelloSkip App'
   verify-app:
     runs-on: macos-latest
     steps:
