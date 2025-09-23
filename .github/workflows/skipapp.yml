@@ -26,9 +26,11 @@ jobs:
         with:
           path: skipapp-hello-repo
       - name: Check building without Skip
+        working-directory: skipapp-hello-repo
         run: |
           SKIP_ZERO=1 swift build
       - name: Check building with Skip
+        working-directory: skipapp-hello-repo
         run: |
           swift build
       - run: brew install skiptools/skip/skip
