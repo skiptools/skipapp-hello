@@ -1,7 +1,12 @@
 # Configuration file for https://skip.tools project
-# this is a transpiled SkipLite module
+#
+# Kotlin dependencies and Gradle build options for this module can be configured here
+#build:
+#  contents:
+#    - block: 'dependencies'
+#      contents:
+#        - 'implementation("androidx.compose.runtime:runtime")'
+
+# this is a transpiled Skip Lite module
 skip:
   mode: 'transpiled'
-
-build:
-  contents:
