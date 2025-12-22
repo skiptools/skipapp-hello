@@ -17,7 +17,7 @@ jobs:
   check-noskip:
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Check building without Skip installed
         run: |
           SKIP_ZERO=1 xcodebuild -scheme 'HelloSkip App' -configuration Release -sdk 'iphoneos' -destination 'generic/platform=iOS' -skipPackagePluginValidation archive CODE_SIGNING_ALLOWED=NO
@@ -27,11 +27,11 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: Cache Homebrew packages
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: ~/Library/Caches/Homebrew
           key: homebrew-packages
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           path: skipapp-hello-repo
       - uses: skiptools/actions/setup-skip@v1
