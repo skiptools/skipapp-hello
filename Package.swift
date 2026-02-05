@@ -10,7 +10,7 @@ let package = Package(
         .library(name: "HelloSkip", type: .dynamic, targets: ["HelloSkip"]),
     ],
     dependencies: [
-        .package(url: "https://source.skip.tools/skip.git", from: "1.6.35"),
+        .package(url: "https://source.skip.tools/skip.git", from: "1.7.1"),
         .package(url: "https://source.skip.tools/skip-ui.git", from: "1.0.0")
     ],
     targets: [
@@ -49,7 +49,7 @@ if Context.environment["SKIP_ZERO"] ?? "0" != "0" {
     // remove the Skip package dependencies
     package.dependencies.removeAll(where: { dependency in
         if case .sourceControl(_, let url, _) = dependency.kind {
-            return url.hasPrefix("https://source.skip.dev/")
+            return url.hasPrefix("https://source.skip.dev/") || url.hasPrefix("https://source.skip.tools/")
         } else {
             return false
         }
