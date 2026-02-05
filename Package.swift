@@ -49,7 +49,7 @@ if Context.environment["SKIP_ZERO"] ?? "0" != "0" {
     // remove the Skip package dependencies
     package.dependencies.removeAll(where: { dependency in
         if case .sourceControl(_, let url, _) = dependency.kind {
-            return url.hasPrefix("https://source.skip.tools/")
+            return url.hasPrefix("https://source.skip.dev/")
         } else {
             return false
         }
