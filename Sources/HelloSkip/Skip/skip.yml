@@ -1,4 +1,4 @@
-# Configuration file for Skip (https://skip.dev) project
+# Skip configuration for HelloSkip module
 #
 # Kotlin dependencies and Gradle build options for this module can be configured here
 #build:
