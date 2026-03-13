@@ -1,23 +1,22 @@
-import XCTest
+import Testing
 import OSLog
 import Foundation
 @testable import HelloSkip
 
 let logger: Logger = Logger(subsystem: "HelloSkip", category: "Tests")
 
-@available(macOS 13, *)
-final class HelloSkipTests: XCTestCase {
+@Suite struct HelloSkipTests {
 
-    func testHelloSkip() throws {
+    @Test func helloSkip() throws {
         logger.log("running testHelloSkip")
-        XCTAssertEqual(1 + 2, 3, "basic test")
+        #expect(1 + 2 == 3, "basic test")
     }
 
-    func testDecodeType() throws {
+    @Test func decodeType() throws {
         // load the TestData.json file from the Resources folder and decode it into a struct
-        let resourceURL: URL = try XCTUnwrap(Bundle.module.url(forResource: "TestData", withExtension: "json"))
+        let resourceURL: URL = try #require(Bundle.module.url(forResource: "TestData", withExtension: "json"))
         let testData = try JSONDecoder().decode(TestData.self, from: Data(contentsOf: resourceURL))
-        XCTAssertEqual("HelloSkip", testData.testModuleName)
+        #expect(testData.testModuleName == "HelloSkip")
     }
 
 }
