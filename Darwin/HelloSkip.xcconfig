@@ -17,7 +17,6 @@ GENERATE_INFOPLIST_FILE = YES
 // The user-visible name of the app (localizable)
 //INFOPLIST_KEY_CFBundleDisplayName = App Name
 //INFOPLIST_KEY_LSApplicationCategoryType = public.app-category.utilities
-//INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app uses your location to …"
 
 // iOS-specific Info.plist property keys
 INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphone*] = YES
@@ -30,13 +29,13 @@ IPHONEOS_DEPLOYMENT_TARGET = 17.0
 MACOSX_DEPLOYMENT_TARGET = 14.0
 SUPPORTS_MACCATALYST = NO
 
+SUPPORTED_PLATFORMS = iphoneos iphonesimulator macosx
+
 // iPhone + iPad
 TARGETED_DEVICE_FAMILY = 1,2
 
 // iPhone only
 // TARGETED_DEVICE_FAMILY = 1
-
-SWIFT_EMIT_LOC_STRINGS = YES
 
 // the name of the product module; this can be anything, but cannot conflict with any Swift module names
 PRODUCT_MODULE_NAME = $(PRODUCT_NAME:c99extidentifier)App
@@ -45,8 +44,6 @@ PRODUCT_MODULE_NAME = $(PRODUCT_NAME:c99extidentifier)App
 // PRODUCT_BUNDLE_IDENTIFIER[config=Debug][sdk=iphoneos*] = cool.beans.BundleIdentifer
 
 SDKROOT = auto
-SUPPORTED_PLATFORMS = iphoneos iphonesimulator macosx
-SWIFT_EMIT_LOC_STRINGS = YES
 
 SWIFT_VERSION = 6
 
