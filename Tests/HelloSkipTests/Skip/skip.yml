@@ -1,3 +1,4 @@
-# # Skip configuration for HelloSkip module
+# Skip configuration for HelloSkipTests module
+
 #build:
 #  contents:
