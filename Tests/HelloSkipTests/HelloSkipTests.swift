@@ -1,14 +1,10 @@
 import Testing
-import OSLog
 import Foundation
 @testable import HelloSkip
-
-let logger: Logger = Logger(subsystem: "HelloSkip", category: "Tests")
 
 @Suite struct HelloSkipTests {
 
     @Test func helloSkip() throws {
-        logger.log("running testHelloSkip")
         #expect(1 + 2 == 3, "basic test")
     }
 
