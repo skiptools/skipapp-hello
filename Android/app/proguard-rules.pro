@@ -2,6 +2,7 @@
 -keep class skip.** { *; }
 -keep class tools.skip.** { *; }
 -keep class kotlin.jvm.functions.** {*;}
+-keep interface kotlinx.coroutines.Job { void cancel(java.util.concurrent.CancellationException); }
 -keep class com.sun.jna.** { *; }
 -dontwarn java.awt.**
 -keep class * implements com.sun.jna.** { *; }
